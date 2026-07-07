@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/forms";
+import { LocationGrid } from "@/components/location-grid";
 import { PageHero } from "@/components/page-hero";
 import { ButtonLink, SectionHeading } from "@/components/ui";
-import { locations, siteConfig } from "@/data/site";
+import { siteConfig } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -115,27 +116,7 @@ export default function ContactPage() {
               </ButtonLink>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {locations.map((location) => (
-              <article
-                key={location.city}
-                className="rounded-[22px] border border-border bg-white p-6"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-navy">
-                    {location.city}
-                  </h3>
-                  <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
-                    {location.status}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm font-semibold text-blue">{location.role}</p>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  {location.description}
-                </p>
-              </article>
-            ))}
-          </div>
+          <LocationGrid compact />
         </div>
       </section>
     </>

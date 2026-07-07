@@ -1,0 +1,25 @@
+{
+  "key": "group_hya_page_hero",
+  "title": "HYA Tech Page Hero",
+  "fields": [
+    {"key":"field_hya_eyebrow","label":"Hero eyebrow","name":"hero_eyebrow","type":"text"},
+    {"key":"field_hya_title","label":"Hero title","name":"hero_title","type":"text"},
+    {"key":"field_hya_accent","label":"Hero highlighted text","name":"hero_accent","type":"text"},
+    {"key":"field_hya_description","label":"Hero description","name":"hero_description","type":"textarea","rows":3},
+    {"key":"field_hya_image","label":"Hero image","name":"hero_image","type":"image","return_format":"array","preview_size":"medium"},
+    {"key":"field_hya_primary_label","label":"Primary button label","name":"hero_primary_label","type":"text"},
+    {"key":"field_hya_primary_url","label":"Primary button URL","name":"hero_primary_url","type":"url"},
+    {"key":"field_hya_secondary_label","label":"Secondary button label","name":"hero_secondary_label","type":"text"},
+    {"key":"field_hya_secondary_url","label":"Secondary button URL","name":"hero_secondary_url","type":"url"}
+  ],
+  "location": [[{"param":"post_type","operator":"==","value":"page"}]],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_rest": 1,
+  "modified": 1782864000
+}
+

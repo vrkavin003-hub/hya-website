@@ -1,0 +1,2 @@
+<?php defined( 'ABSPATH' ) || exit; if ( isset( $_GET['form_status'], $_GET['form_message'] ) ) : $status = sanitize_key( wp_unslash( $_GET['form_status'] ) ); $message = sanitize_text_field( rawurldecode( wp_unslash( $_GET['form_message'] ) ) ); ?><p class="form-message <?php echo 'success' === $status ? 'success' : 'error'; ?>" role="<?php echo 'success' === $status ? 'status' : 'alert'; ?>"><?php echo esc_html( $message ); ?></p><?php endif; ?>
+

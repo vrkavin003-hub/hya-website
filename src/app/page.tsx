@@ -273,9 +273,9 @@ export default function HomePage() {
             description="HYA Tech’s operating and partnership network supports manufacturing, customer delivery, and know-how exchange."
             align="center"
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="home-location-track mt-12">
             {locations.map((location) => (
-              <article key={location.city} className="soft-card">
+              <article key={location.city} className="home-location-card soft-card">
                 <div className="flex items-center justify-between gap-4">
                   <MapPin aria-hidden="true" className="text-blue" size={22} />
                   <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">

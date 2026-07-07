@@ -2,6 +2,10 @@ import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  HeroImageRotator,
+  type RotatingHeroImage,
+} from "@/components/hero-image-rotator";
 import { Reveal } from "@/components/reveal";
 
 type HeroAction = {
@@ -26,6 +30,7 @@ type PageHeroProps = {
   secondaryAction?: HeroAction;
   highlights?: HeroHighlight[];
   imagePosition?: string;
+  rotatingImages?: RotatingHeroImage[];
   priority?: boolean;
   variant?: "page" | "home" | "about";
 };
@@ -41,6 +46,7 @@ export function PageHero({
   secondaryAction,
   highlights = [],
   imagePosition = "center",
+  rotatingImages = [],
   priority = true,
   variant = "page",
 }: PageHeroProps) {
@@ -71,15 +77,22 @@ export function PageHero({
             <div className="page-hero-blueprint" aria-hidden="true" />
             <div className="page-hero-media-frame">
               <div className="page-hero-media">
-                <Image
-                  src={image}
-                  alt={imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-cover"
-                  style={{ objectPosition: imagePosition }}
-                  priority={priority}
-                />
+                {rotatingImages.length ? (
+                  <HeroImageRotator
+                    images={rotatingImages}
+                    imagePosition={imagePosition}
+                  />
+                ) : (
+                  <Image
+                    src={image}
+                    alt={imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover"
+                    style={{ objectPosition: imagePosition }}
+                    priority={priority}
+                  />
+                )}
                 <div className="page-hero-media-overlay" />
                 <div className="page-hero-media-glass" aria-hidden="true" />
               </div>

@@ -2,15 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { BadgeCheck, ShieldCheck, UsersRound } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
+import { LocationGrid } from "@/components/location-grid";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { Timeline } from "@/components/timeline";
 import { SectionHeading } from "@/components/ui";
-import {
-  locations,
-  missionVision,
-  values,
-} from "@/data/site";
+import { missionVision, projects, values } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -31,6 +28,10 @@ export default function AboutPage() {
         image="/images/heroes/about-hero.webp"
         imageAlt="Precision manufacturing laser equipment operating in a modern factory"
         imagePosition="58% center"
+        rotatingImages={projects.map((project) => ({
+          src: project.image,
+          alt: `${project.title} — ${project.description}`,
+        }))}
         primaryAction={{ label: "Our Capabilities", href: "/capabilities" }}
         secondaryAction={{ label: "Explore Our Story", href: "#journey" }}
         highlights={[
@@ -161,26 +162,8 @@ export default function AboutPage() {
             description="The location descriptions below follow the status stated on the source website and avoid implying unverified legal entities."
             align="center"
           />
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {locations.map((location) => (
-              <article key={location.city} className="soft-card">
-                <div className="flex flex-wrap items-start justify-between gap-4">
-                  <div>
-                    <p className="text-sm font-semibold text-blue">
-                      {location.region}
-                    </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-navy">
-                      {location.city}
-                    </h3>
-                  </div>
-                  <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
-                    {location.status}
-                  </span>
-                </div>
-                <p className="mt-5 font-semibold text-slate-700">{location.role}</p>
-                <p className="mt-2 leading-7 text-muted">{location.description}</p>
-              </article>
-            ))}
+          <div className="mt-12">
+            <LocationGrid />
           </div>
         </div>
       </section>

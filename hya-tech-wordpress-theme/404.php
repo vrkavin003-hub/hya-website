@@ -1,0 +1,2 @@
+<?php defined('ABSPATH')||exit; get_header(); ?><section class="container not-found"><span class="label">404</span><h1><?php esc_html_e('Page not found','hya-tech'); ?></h1><p><?php esc_html_e('The page you requested may have moved or no longer exists.','hya-tech'); ?></p><a class="button button-primary" href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Return home','hya-tech'); ?></a></section><?php get_footer(); ?>
+

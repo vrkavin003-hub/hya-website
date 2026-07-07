@@ -1,0 +1,3 @@
+<?php defined( 'ABSPATH' ) || exit; $stats = array( array( '7+', 'Years of Experience' ), array( '500+', 'Projects Completed' ), array( '98%', 'Client Satisfaction' ), array( '5+', 'Industries Served' ) ); ?>
+<section class="stats-section" aria-label="<?php esc_attr_e( 'Company statistics', 'hya-tech' ); ?>"><div class="container stats-panel reveal"><?php foreach ( $stats as $stat ) : ?><div class="stat"><span class="stat-icon" aria-hidden="true">✦</span><span><strong><?php echo esc_html( $stat[0] ); ?></strong><small><?php echo esc_html( $stat[1] ); ?></small></span></div><?php endforeach; ?></div></section>
+

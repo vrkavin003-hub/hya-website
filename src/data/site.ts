@@ -47,7 +47,7 @@ export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/capabilities" },
-  { label: "Projects", href: "/projects" },
+  { label: "Facilities", href: "/projects" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
@@ -132,7 +132,7 @@ export const capabilityGroups = [
     short:
       "From a clear manufacturing need to validated engineering intent.",
     description:
-      "Concept development, 3D modeling, simulation, design reviews, and production-ready engineering support.",
+      "We provide practical design and engineering support for manufacturing needs. Our solutions focus on accuracy, usability, and long-term performance.",
     icon: DraftingCompass,
     items: [
       "Concept development",
@@ -149,7 +149,7 @@ export const capabilityGroups = [
     short:
       "Machining capabilities for complex parts, tooling, and production requirements.",
     description:
-      "CNC turning, milling, multi-axis machining, EDM, grinding, inspection, and quality assurance.",
+      "We manufacture high-accuracy components for industrial applications. Every part is made with focus on quality, consistency, and reliability.",
     icon: Cog,
     items: [
       "CNC turning and milling",
@@ -166,7 +166,7 @@ export const capabilityGroups = [
     short:
       "Custom-engineered fixtures that support repeatability, quality, and flow.",
     description:
-      "Assembly fixtures, welding fixtures, jigs, inspection gauges, and production tooling tailored to specific requirements.",
+      "We design and build custom fixtures and tools for production support. These solutions help improve assembly speed, accuracy, and repeatability.",
     icon: Wrench,
     items: [
       "Assembly fixtures",
@@ -183,7 +183,7 @@ export const capabilityGroups = [
     short:
       "Integrated assembly and process equipment from design to commissioning.",
     description:
-      "Automated assembly lines, riveting, press fitting, tightening, dispensing, welding, and special-purpose machines.",
+      "We deliver complete automation systems from planning to installation. Our turnkey solutions help reduce manual work and improve productivity..",
     icon: Blocks,
     items: [
       "Automated assembly lines",
@@ -200,7 +200,7 @@ export const capabilityGroups = [
     short:
       "Connected manufacturing equipment designed for better visibility and control.",
     description:
-      "Equipment integrating automation, sensors, control systems, data capture, and real-time monitoring.",
+      "We develop smart equipment for modern industrial operations. These systems support better control, efficiency, and reliable performance.",
     icon: BrainCircuit,
     items: [
       "PLC-controlled equipment",
@@ -217,7 +217,7 @@ export const capabilityGroups = [
     short:
       "Accurate forming for enclosures, brackets, and custom industrial parts.",
     description:
-      "Precision sheet metal bending for industrial components, enclosures, brackets, and custom fabrication with accurate finishing and reliable quality.",
+      "We provide accurate sheet metal bending for different industrial requirements. The process ensures clean shapes, strong parts, and precise dimensions.",
     icon: PanelTop,
     items: [
       "Precision press-brake bending",
@@ -234,7 +234,7 @@ export const capabilityGroups = [
     short:
       "Clean, repeatable cutting for sheet metal profiles and fabricated parts.",
     description:
-      "High-precision laser cutting for sheet metal parts, profiles, enclosures, and custom fabrication with clean edges and repeatable accuracy.",
+      "We offer precise laser cutting for sheet metal and custom components. It delivers clean edges, accurate profiles, and smooth finishing.",
     icon: ScanLine,
     items: [
       "Precision profile cutting",
@@ -242,7 +242,7 @@ export const capabilityGroups = [
       "Clean-edge processing",
       "Custom production batches",
     ],
-    image: "/images/laser-cutting.png",
+    image: "/images/laser-cutting-machine.png",
     imageAlt: "Laser cutting capability",
   },
   {
@@ -251,7 +251,7 @@ export const capabilityGroups = [
     short:
       "Controlled joining for precision components and production assemblies.",
     description:
-      "Precision laser welding for complex components and industrial assemblies with focused heat input, clean joints, and repeatable production quality.",
+      "We provide laser welding for strong, neat, and high-quality joints. It is suitable for precision work where clean finishing is important.",
     icon: Zap,
     items: [
       "Precision laser welding",
@@ -268,7 +268,7 @@ export const capabilityGroups = [
     short:
       "Practical supply and engineering support that helps keep production moving.",
     description:
-      "Replacement parts, wear components, consumables, installation support, qualification, maintenance, and ongoing assistance.",
+      "We supply industrial spare parts and technical support for machines and systems. Our support helps reduce downtime and keep operations running smoothly.",
     icon: PackageCheck,
     items: [
       "Replacement and wear parts",
@@ -472,11 +472,19 @@ export const locations = [
     status: "Origin",
   },
   {
-    city: "Shenzhen",
-    region: "China",
-    role: "Technology network",
+    city: "Singapore",
+    region: "Singapore",
+    role: "Technology and business network",
     description:
-      "Part of the company’s international know-how and capacity-sharing network.",
+      "Supporting international collaboration, technology partnerships, and regional customer development.",
+    status: "Partnership",
+  },
+  {
+    city: "Malaysia",
+    region: "Malaysia",
+    role: "Regional manufacturing network",
+    description:
+      "Supporting manufacturing collaboration, supply-chain development, and Southeast Asian growth opportunities.",
     status: "Partnership",
   },
 ];

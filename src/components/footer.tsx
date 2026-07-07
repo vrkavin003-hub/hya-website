@@ -13,7 +13,7 @@ export function Footer() {
       <div className="site-container py-16 sm:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1fr_1.3fr]">
           <div>
-            <Logo />
+            <Logo variant="footer" />
             <p className="mt-6 max-w-sm text-sm leading-7 text-muted">
               Precision manufacturing excellence since 2018. Delivering
               practical engineering, fixtures, automation, and production
