@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { BadgeCheck, ShieldCheck, UsersRound } from "lucide-react";
+import { AboutFaq } from "./about-faq";
+import styles from "./about.module.css";
 import { ContactCta } from "@/components/contact-cta";
 import { LocationGrid } from "@/components/location-grid";
 import { PageHero } from "@/components/page-hero";
@@ -154,6 +156,14 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="section-alt pt-0">
+        <div className="site-container">
+          <Reveal>
+            <AboutFaq />
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section">
         <div className="site-container">
           <SectionHeading
@@ -162,7 +172,7 @@ export default function AboutPage() {
             description="The location descriptions below follow the status stated on the source website and avoid implying unverified legal entities."
             align="center"
           />
-          <div className="mt-12">
+          <div className={`mt-12 ${styles.locationRow}`}>
             <LocationGrid />
           </div>
         </div>

@@ -1,0 +1,24 @@
+.locationRow :global(.location-star-grid) {
+  grid-template-columns: 1fr;
+}
+
+.locationRow :global(.location-card),
+.locationRow :global(.location-card:nth-child(3)),
+.locationRow :global(.location-card:nth-child(5)) {
+  grid-column: auto;
+  width: 100%;
+  justify-self: stretch;
+}
+
+@media (min-width: 768px) {
+  .locationRow :global(.location-star-grid) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .locationRow :global(.location-star-grid) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}

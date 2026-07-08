@@ -392,55 +392,55 @@ export const projects = [
 export const timeline = [
   {
     year: "2018",
-    title: "The beginning",
+    title: "Laying the Foundation",
     description:
       'The company registered as "RAZK Automation" in Madurai, Tamil Nadu, beginning its precision manufacturing journey.',
   },
   {
     year: "2019",
-    title: "First major project",
+    title: "Winning Industry Confidence",
     description:
       "Provided engineering support for automation equipment installation, qualification, and maintenance in the EMS industry.",
   },
   {
     year: "2020",
-    title: "Business expansion",
+    title: "Broadening Our Expertise",
     description:
       "Expanded into spares and standard-parts supply, broadening the company’s industrial support offering.",
   },
   {
     year: "2021",
-    title: "Chennai branch",
+    title: "Expanding Our Reach",
     description:
       "Established a branch office in Sriperumbudur, Chennai, to support a growing customer base.",
   },
   {
     year: "2022",
-    title: "Multi-location growth",
+    title: "Accelerating Growth",
     description:
       "Expanded engineering support activity across multiple customers and operating locations.",
   },
   {
     year: "2023",
-    title: "HYA Tech is born",
+    title: "The HYA Tech Evolution",
     description:
       'Registered the new company "HYA Tech" in Chennai, marking the next chapter of the business.',
   },
   {
     year: "2024",
-    title: "Manufacturing excellence",
+    title: "Precision in Production",
     description:
       "Established a manufacturing facility in Hosur supporting precision components and fixture production.",
   },
   {
     year: "2025",
-    title: "Going global",
+    title: "Crossing Global Boundaries",
     description:
       "Established partnerships for know-how transfer and capacity sharing with China and Singapore.",
   },
   {
     year: "2026",
-    title: "Next-generation expansion",
+    title: "Shaping Tomorrow's Manufacturing",
     description:
       "Expanding to new facilities, adding advanced robotics and manufacturing for next-generation precision solutions.",
   },
