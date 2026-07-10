@@ -143,14 +143,19 @@ export function CareerApplication() {
       </label>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="field">
-          <span>Full name</span>
+          <span>First name</span>
           <input name="name" autoComplete="name" required minLength={2} />
         </label>
         <label className="field">
-          <span>Email address</span>
-          <input name="email" type="email" autoComplete="email" required />
+          <span>Last name</span>
+          <input name="name" autoComplete="name" required minLength={2} />
         </label>
+
       </div>
+      <label className="field mt-5">
+        <span>Email address</span>
+        <input name="email" type="email" autoComplete="email" required />
+      </label>
       <label className="field mt-5">
         <span>Position of interest</span>
         <select name="role" defaultValue="" required>
@@ -162,6 +167,10 @@ export function CareerApplication() {
           ))}
           <option>General application</option>
         </select>
+      </label>
+      <label className="field mt-5">
+        <span>Designation</span>
+        <input name="designation" autoComplete="job-title" required minLength={2} />
       </label>
       <label className="field mt-5">
         <span>Introduction</span>
