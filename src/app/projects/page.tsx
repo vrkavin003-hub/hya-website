@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { ContactCta } from "@/components/contact-cta";
 import { PageHero } from "@/components/page-hero";
+import { ContactCta } from "@/components/contact-cta";
 import { ProjectGrid } from "@/components/project-grid";
-import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/ui";
-import { industries, processSteps } from "@/data/site";
+import { IndustriesServed } from "@/components/projects/industries-served";
+import { ProjectsProcess } from "@/components/projects/projects-process";
 import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
@@ -42,60 +42,8 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="section-alt">
-        <div className="site-container">
-          <SectionHeading
-            eyebrow="Industries"
-            title="Engineering support across demanding sectors."
-            description="Focused engineering support for electronics, automotive, tooling, fixtures, and production assembly requirements."
-            align="center"
-          />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {industries.map((industry, index) => {
-              const Icon = industry.icon;
-              return (
-                <Reveal key={industry.title} delay={index * 0.04}>
-                  <article className="soft-card group h-full">
-                    <div className="icon-tile">
-                      <Icon aria-hidden="true" size={22} />
-                    </div>
-                    <h3 className="mt-6 text-xl font-semibold text-navy">
-                      {industry.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-muted">
-                      {industry.description}
-                    </p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="site-container">
-          <SectionHeading
-            eyebrow="How work moves"
-            title="Projects progress through visible engineering stages."
-            description="The process is structured to surface constraints early, validate before production, and keep support connected after delivery."
-          />
-          <div className="mt-12 grid gap-5 lg:grid-cols-5">
-            {processSteps.map((step) => (
-              <article key={step.number} className="soft-card">
-                <div className="text-sm font-bold text-blue">{step.number}</div>
-                <h3 className="mt-7 text-lg font-semibold text-navy">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  {step.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <IndustriesServed />
+      <ProjectsProcess />
       <ContactCta />
     </>
   );

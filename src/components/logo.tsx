@@ -16,7 +16,7 @@ export function Logo({
     >
       <span className="logo-mark relative block size-11 overflow-hidden rounded-xl bg-white">
         <Image
-          src="/images/hya-loader-logo.png"
+          src="/images/hya-logo.jpg"
           alt=""
           fill
           sizes="44px"

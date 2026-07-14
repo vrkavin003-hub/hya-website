@@ -14,7 +14,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-5">
       <div
-        className="site-header mx-auto max-w-[1180px] rounded-[24px] border px-4 shadow-[0_14px_50px_rgba(11,31,58,0.10)] backdrop-blur-xl sm:px-5"
+        className="site-header mx-auto max-w-[1180px] rounded-[24px] border px-4 sm:px-5"
       >
         <div className="flex h-[68px] items-center justify-between gap-4">
           <Logo />
