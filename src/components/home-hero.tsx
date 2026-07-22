@@ -23,7 +23,7 @@ export function HomeHero() {
       eyebrow="Engineering excellence"
       title="Precision Engineering."
       accent="Powerful Solutions."
-      description="We deliver smart, reliable and quality-driven industrial solutions to help your business grow stronger."
+      description="Precision Beyond Limits. Engineering the Future of Manufacturing "
       image="/images/heroes/home-hero-cnc.png"
       imageAlt="CNC milling equipment machining a precision HYA Tech component"
       imagePosition="center center"
