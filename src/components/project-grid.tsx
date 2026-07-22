@@ -22,7 +22,7 @@ export function ProjectGrid({ limit }: { limit?: number }) {
   return (
     <>
       {!limit ? (
-        <div className="mb-10 flex flex-wrap gap-2" aria-label="Project categories">
+        <div className="mb-10 flex flex-wrap gap-2 overflow-hidden" aria-label="Project categories">
           {categories.map((category) => (
             <button
               type="button"

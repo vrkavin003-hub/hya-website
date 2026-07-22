@@ -2203,6 +2203,48 @@ img {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .service-card h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .page-hero-highlight strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .page-hero-highlight small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .timeline-item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .faq-question-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .contact-address-text {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 900px) {
@@ -2239,6 +2281,41 @@ img {
 
   .home-core-services .services-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-card h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .page-hero-content {
+    min-height: 480px;
+    padding: clamp(1.75rem, 5vw, 3rem);
+  }
+
+  .page-hero-card-home .page-hero-content {
+    min-height: 580px;
+    padding: 8rem clamp(2rem, 6vw, 4rem) 3.5rem;
+  }
+
+  .page-hero-card-about .page-hero-content {
+    min-height: 540px;
+    padding: 8rem clamp(2rem, 6vw, 4rem) 3.5rem;
+  }
+
+  .page-hero-media-frame {
+    height: clamp(260px, 50vw, 400px);
+  }
+
+  .page-hero-card-home .page-hero-media-frame {
+    height: clamp(280px, 55vw, 420px);
+  }
+
+  .page-hero-card-about .page-hero-media-frame {
+    height: clamp(270px, 52vw, 410px);
   }
 }
 
@@ -2349,14 +2426,14 @@ img {
 
   .page-hero-card-home .page-hero-content {
     width: 100%;
-    min-height: 680px;
-    padding: 9rem clamp(2rem, 7vw, 4rem) 4rem;
+    min-height: 520px;
+    padding: 7.5rem clamp(1.5rem, 5vw, 3rem) 3rem;
   }
 
   .page-hero-card-about .page-hero-content {
     width: 100%;
-    min-height: 620px;
-    padding: 8.5rem clamp(2rem, 7vw, 4rem) 4rem;
+    min-height: 500px;
+    padding: 7.5rem clamp(1.5rem, 5vw, 3rem) 3rem;
     transform: none;
   }
 
@@ -2432,7 +2509,7 @@ img {
 
   .page-hero-content {
     min-height: 0;
-    padding: 2rem 1.3rem 2.5rem;
+    padding: 2rem 1.2rem 2.5rem;
   }
 
   .page-hero-card-home .page-hero-content {
@@ -2493,6 +2570,71 @@ img {
   .home-stats-section {
     padding: 1rem 0 2rem;
     background: transparent;
+  }
+
+  .location-card {
+    padding: 1.25rem;
+  }
+
+  .location-card-compact {
+    padding: 1.25rem;
+  }
+
+  .brand-lockup-footer .logo-copy > span:first-child {
+    font-size: 15px;
+  }
+
+  .brand-lockup-footer .logo-tagline {
+    font-size: 8px;
+  }
+
+  .page-hero-card-home .page-hero-highlight-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .page-hero-card-home .page-hero-highlight strong {
+    font-size: 0.85rem;
+  }
+
+  .page-hero-card-home .page-hero-highlight small {
+    max-width: 150px;
+    font-size: 0.72rem;
+  }
+
+  .capability-card-image {
+    min-height: 220px;
+  }
+
+  .form-card {
+    padding: clamp(1rem, 3.5vw, 2rem);
+  }
+
+  .timeline-card {
+    padding: 1.25rem;
+  }
+
+  .timeline-card h3 {
+    font-size: 1rem;
+  }
+
+  .timeline-card p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .stats-item {
+    min-height: 96px;
+    gap: 0.5rem;
+    padding: 0.85rem 0.6rem;
+  }
+
+  .stats-item strong {
+    font-size: 1.35rem;
+  }
+
+  .stats-item small {
+    font-size: 0.62rem;
   }
 }
 

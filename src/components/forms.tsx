@@ -101,7 +101,7 @@ export function ContactForm() {
           Submitting validates your enquiry and opens a prepared email in your
           device’s email app. No information is stored by this website.
         </p>
-        <button className="button button-primary" type="submit" disabled={state.status === "submitting"}>
+        <button className="button button-primary w-full sm:w-auto" type="submit" disabled={state.status === "submitting"}>
           {state.status === "submitting" ? (
             <LoaderCircle className="animate-spin" aria-hidden="true" size={17} />
           ) : (
@@ -199,7 +199,7 @@ export function CareerApplication() {
           Your résumé will be validated here. Attach the same file when your
           prepared email opens.
         </p>
-        <button className="button button-primary" type="submit" disabled={state.status === "submitting"}>
+        <button className="button button-primary w-full sm:w-auto" type="submit" disabled={state.status === "submitting"}>
           {state.status === "submitting" ? (
             <LoaderCircle className="animate-spin" aria-hidden="true" size={17} />
           ) : (
