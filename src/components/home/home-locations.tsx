@@ -9,7 +9,7 @@ export function HomeLocations() {
         <SectionHeading
           eyebrow="Locations"
           title="Close to production. Connected to expertise."
-          description="HYA Tech's operating and partnership network supports manufacturing, customer delivery, and know-how exchange."
+          description="HYA TECH's operating and partnership network supports manufacturing, customer delivery, and know-how exchange."
           align="center"
         />
         <div className="home-location-track mt-12">

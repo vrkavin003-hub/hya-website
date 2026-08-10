@@ -12,8 +12,8 @@ import { companySchema, siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "HYA Tech | Precision Manufacturing & Automation Solutions",
-    template: "%s | HYA Tech",
+    default: "HYA TECH | Precision Manufacturing & Automation Solutions",
+    template: "%s | HYA TECH",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,

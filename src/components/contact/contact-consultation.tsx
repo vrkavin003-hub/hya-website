@@ -9,7 +9,7 @@ export function ContactConsultation() {
           <SectionHeading
             eyebrow="Request consultation"
             title="Tell us enough to begin well."
-            description="A few concrete details about the application, production environment, timeline, and constraints help HYA Tech route your enquiry effectively."
+            description="A few concrete details about the application, production environment, timeline, and constraints help HYA TECH route your enquiry effectively."
           />
         </div>
         <ContactForm />

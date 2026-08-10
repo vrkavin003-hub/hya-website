@@ -10,7 +10,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Projects",
   description:
-    "Explore HYA Tech work across CNC machining, precision components, fixtures, assembly systems, EDM, grinding, and industrial automation.",
+    "Explore HYA TECH work across CNC machining, precision components, fixtures, assembly systems, EDM, grinding, and industrial automation.",
   path: "/projects",
 });
 

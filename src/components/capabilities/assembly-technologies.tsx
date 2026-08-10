@@ -9,7 +9,7 @@ export function AssemblyTechnologies() {
         <SectionHeading
           eyebrow="Assembly technologies"
           title="Processes integrated around the production need."
-          description="HYA Tech's source portfolio includes a range of joining, fastening, dispensing, and inspection technologies."
+          description="HYA TECH's source portfolio includes a range of joining, fastening, dispensing, and inspection technologies."
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {assemblyTechnologies.map((technology, index) => {

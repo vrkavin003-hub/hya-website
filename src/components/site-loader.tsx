@@ -45,7 +45,7 @@ function LoaderInstance() {
       className={`site-loader${leaving ? " is-leaving" : ""}`}
       role="status"
       aria-live="polite"
-      aria-label="Loading HYA Tech website"
+      aria-label="Loading HYA TECH website"
     >
       <div className="site-loader-content">
         <div className="site-loader-mark" aria-hidden="true">

@@ -12,7 +12,7 @@ export function CareersApply() {
           </h2>
           <p className="mt-6 leading-8 text-muted">
             Complete the form to prepare an email application. Attach your
-            latest résumé before sending it to HYA Tech.
+            latest résumé before sending it to HYA TECH.
           </p>
           <a
             href="#application-form"

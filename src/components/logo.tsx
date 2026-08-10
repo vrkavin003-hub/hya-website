@@ -12,7 +12,7 @@ export function Logo({
     <Link
       href="/"
       className={`brand-lockup brand-lockup-${variant} group flex items-center gap-3`}
-      aria-label="HYA Tech home"
+      aria-label="HYA TECH home"
     >
       <span className="logo-mark relative block size-11 overflow-hidden rounded-xl bg-white">
         <Image

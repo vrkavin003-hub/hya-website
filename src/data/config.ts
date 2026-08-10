@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "HYA Tech",
+  name: "HYA TECH",
   tagline: "Precision Beyond Belief",
   description:
-    "HYA Tech delivers precision manufacturing, custom fixtures, industrial automation and intelligent equipment solutions from design through production and support.",
+    "HYA TECH delivers precision manufacturing, custom fixtures, industrial automation and intelligent equipment solutions from design through production and support.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://hyatech.co.in",
   email: "info@hyatech.co.in",
   phoneDisplay: "+91 99444 19872",
@@ -15,11 +15,11 @@ export const siteConfig = {
 
 export const navigation = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/capabilities" },
-  { label: "Facilities", href: "/projects" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Services", href: "/capabilities" },
+  { label: "Facility", href: "/projects" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const footerCapabilities = [

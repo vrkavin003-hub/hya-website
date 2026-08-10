@@ -24,15 +24,10 @@ export function AboutPreview() {
           </h2>
           <div className="mt-6 space-y-5 text-base leading-8 text-muted">
             <p>
-              HYA Tech is committed to becoming a leading industry player by
-              expanding through deep collaboration with customers and
-              investing in technology and talent.
+              At HyaTech Pvt Ltd, we deliver world-class precision engineering solutions with manufacturing capabilities of up to ±5 Microns. Established in 2023, we specialize in CNC Machining, VMC Machining, Precision Turning, Reverse Engineering, Sheet Metal Fabrication, Fixtures, Jigs, and Industrial Consumables designed for modern manufacturing environments.
             </p>
             <p>
-              The company was founded to build world-class engineering
-              excellence in precision manufacturing for the electronics
-              industry—delivering innovation, quality, and reliability from
-              India.
+              With a mission to strengthen India's manufacturing ecosystem, we help leading companies localize critical production-line components traditionally sourced from overseas suppliers. Our solutions enable faster procurement, reduced costs, improved quality, and resilient supply chains.
             </p>
           </div>
           <div className="mt-8">

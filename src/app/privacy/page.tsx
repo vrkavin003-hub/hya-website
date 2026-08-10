@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Privacy Policy",
-  description: "Privacy information for the HYA Tech corporate website.",
+  description: "Privacy information for the HYA TECH corporate website.",
   path: "/privacy",
 });
 

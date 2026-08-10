@@ -9,8 +9,8 @@ export function WhatsAppButton() {
       href={`https://wa.me/${whatsappNumber}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Chat with HYA Tech on WhatsApp at ${siteConfig.phoneDisplay}`}
-      title="Chat with HYA Tech on WhatsApp"
+      aria-label={`Chat with HYA TECH on WhatsApp at ${siteConfig.phoneDisplay}`}
+      title="Chat with HYA TECH on WhatsApp"
     >
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path

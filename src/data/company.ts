@@ -12,8 +12,8 @@ import { siteConfig } from "./config";
 
 export const verifiedMetrics = [
   { value: "7+", label: "Years of experience" },
-  { value: "500+", label: "Projects completed" },
-  { value: "50+", label: "Industry partners" },
+  { value: "50000 +", label: "Projects delivered" },
+  { value: "5+", label: "Industry vertical served" },
   { value: "98%", label: "Client satisfaction" },
 ];
 
@@ -94,31 +94,31 @@ export const timeline = [
     year: "2019",
     title: "Winning Industry Confidence",
     description:
-      "Provided engineering support for automation equipment installation, qualification, and maintenance in the EMS industry.",
+      "Provided engineering support for automation equipment installation, qualification, and maintenance in the Major EMS industry Giants.",
   },
   {
     year: "2020",
     title: "Broadening Our Expertise",
     description:
-      "Expanded into spares and standard-parts supply, broadening the company's industrial support offering.",
+      "Expanded into spares and standard-parts supply, broadening the company's industrial support offering on different fronts.",
   },
   {
     year: "2021",
     title: "Expanding Our Reach",
     description:
-      "Established a branch office in Sriperumbudur, Chennai, to support a growing customer base.",
+      "Established a branch office in Sriperumbudur, Chennai, to support a growing customer base activities.",
   },
   {
     year: "2022",
-    title: "Accelerating Growth",
+    title: "Accelerating Industrial Growth",
     description:
       "Expanded engineering support activity across multiple customers and operating locations.",
   },
   {
     year: "2023",
-    title: "The HYA Tech Evolution",
+    title: "The HYA TECH Evolution",
     description:
-      'Registered the new company "HYA Tech" in Chennai, marking the next chapter of the business.',
+      'Registered our new company "HYA TECH" in Chennai, marking the next chapter of growth in the EMS Market.',
   },
   {
     year: "2024",
@@ -130,56 +130,100 @@ export const timeline = [
     year: "2025",
     title: "Crossing Global Boundaries",
     description:
-      "Established partnerships for know-how transfer and capacity sharing with Malaysia and Singapore.",
+      "Established partnerships acrossMalaysia and Singapore for capacity sharing building a consistently evolving brand.",
   },
   {
     year: "2026",
     title: "Shaping Tomorrow's Manufacturing",
     description:
-      "Expanding to new facilities, adding advanced robotics and manufacturing for next-generation precision solutions.",
+      "Expanding to new facilities, adding advanced robotics and sheet metal capabilities to cater for next-generation.",
   },
 ];
 
-export const locations = [
+export type CompanyLocation = {
+  id: string;
+  city: string;
+  region: string;
+  role: string;
+  description: string;
+  status: string;
+  country: "India" | "Singapore" | "Malaysia";
+  flag: "IN" | "SG" | "MY";
+  latitude: number;
+  longitude: number;
+  address: string;
+};
+
+export const locations: CompanyLocation[] = [
   {
+    id: "hosur",
     city: "Hosur",
     region: "Tamil Nadu, India",
     role: "Manufacturing headquarters",
     description:
       "Precision-component, fixture, equipment, and engineering delivery hub.",
     status: "Active",
+    country: "India",
+    flag: "IN",
+    latitude: 12.7409,
+    longitude: 77.8253,
+    address: "Plot No. 122, SIDCO, Hosur, Tamil Nadu 635109",
   },
   {
+    id: "chennai",
     city: "Chennai",
     region: "Tamil Nadu, India",
     role: "Branch office",
     description:
-      "Customer-support presence established in Sriperumbudur and HYA Tech's 2023 registration location.",
+      "Customer-support presence established in Sriperumbudur and HYA TECH's 2023 registration location.",
     status: "Active",
+    country: "India",
+    flag: "IN",
+    latitude: 12.9698,
+    longitude: 79.9483,
+    address: "Sriperumbudur, Chennai, Tamil Nadu",
   },
   {
+    id: "madurai",
     city: "Madurai",
     region: "Tamil Nadu, India",
     role: "Origin office",
     description:
       "The starting point of the company's engineering journey in 2018.",
     status: "Origin",
+    country: "India",
+    flag: "IN",
+    latitude: 9.9252,
+    longitude: 78.1198,
+    address: "Madurai, Tamil Nadu",
   },
   {
+    id: "singapore",
     city: "Singapore",
     region: "Singapore",
     role: "Technology and business network",
     description:
       "Supporting international collaboration, technology partnerships, and regional customer development.",
     status: "Partnership",
+    country: "Singapore",
+    flag: "SG",
+    latitude: 1.3521,
+    longitude: 103.8198,
+    address: "Singapore",
   },
   {
+    id: "malaysia",
     city: "Malaysia",
     region: "Malaysia",
     role: "Regional manufacturing network",
     description:
       "Supporting manufacturing collaboration, supply-chain development, and Southeast Asian growth opportunities.",
     status: "Partnership",
+    country: "Malaysia",
+    flag: "MY",
+    latitude: 3.139,
+    longitude: 101.6869,
+    address: "Kuala Lumpur, Malaysia",
   },
 ];
 

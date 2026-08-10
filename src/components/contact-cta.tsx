@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export function ContactCta({
   title = "Have a project in mind?",
-  description = "Let’s discuss how HYA Tech can bring precision, efficiency, and practical engineering support to your production.",
+  description = "Let’s discuss how HYA TECH can bring precision, efficiency, and practical engineering support to your production.",
 }: {
   title?: string;
   description?: string;
@@ -31,7 +31,10 @@ export function ContactCta({
                 href={`mailto:${siteConfig.email}`}
               >
                 <Mail aria-hidden="true" size={17} />
-                Email HYA Tech
+                <span className="flex flex-col items-start gap-0.5 leading-none">
+                  <span>Email</span>
+                  <span>HYA TECH</span>
+                </span>
               </a>
             </div>
           </div>

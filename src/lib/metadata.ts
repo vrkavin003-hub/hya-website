@@ -27,7 +27,7 @@ export function createMetadata({
           url: `${siteConfig.url}/images/factory-team.jpg`,
           width: 1500,
           height: 844,
-          alt: "HYA Tech precision manufacturing and automation",
+          alt: "HYA TECH precision manufacturing and automation",
         },
       ],
     },

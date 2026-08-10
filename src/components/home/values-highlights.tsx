@@ -1,30 +1,65 @@
-import { values } from "@/data/site";
+import { Target, Factory, Zap, ShieldCheck, Handshake } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/ui";
 
+const foundationCards = [
+  {
+    title: "Excellence & precision in every Order",
+    description:
+      "Committed to delivering exceptional quality, precision, and reliability in every project, ensuring results that consistently exceed customer expectations.",
+    icon: Target,
+  },
+  {
+    title: "Manufacturing Versatility",
+    description:
+      "Equipped to handle diverse manufacturing requirements with flexible solutions tailored to industries of every scale and complexity.",
+    icon: Factory,
+  },
+  {
+    title: "Faster lead times and competitive pricing",
+    description:
+      "Combining efficient production processes with cost-effective solutions to deliver faster turnaround times without compromising quality.",
+    icon: Zap,
+  },
+  {
+    title: "Expert Team",
+    description:
+      "Driven by a highly  technicalskilled team of engineering professionals dedicated to providing innovative solutions, technical expertise, and dependable support throughout every stage of your project.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Customer Centric Approach",
+    description:
+      "Every interaction is designed with you in mind. By prioritising your needs, embracing your feedback, and delivering excellence at every touchpoint, we ensure an experience that inspires confidence, loyalty, and continued success.",
+    icon: Handshake,
+  },
+];
+
 export function ValuesHighlights() {
   return (
-    <section className="section">
-      <div className="site-container">
+    <section className="section-alt">
+      <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10">
         <SectionHeading
           eyebrow="Our foundation"
           title="Clear values behind precise work."
           description="A practical culture of excellence, customer focus, safety, responsibility, and continuous improvement."
           align="center"
         />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {values.slice(0, 3).map((value, index) => {
-            const Icon = value.icon;
+        <div className="foundation-grid mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
+          {foundationCards.map((card, index) => {
+            const Icon = card.icon;
             return (
-              <Reveal key={value.title} delay={index * 0.04}>
-                <article className="soft-card group h-full">
-                  <div className="icon-tile">
-                    <Icon aria-hidden="true" size={23} strokeWidth={1.8} />
+              <Reveal key={card.title} delay={index * 0.06} className="h-full">
+                <article className="soft-card foundation-card group h-full flex flex-col items-center justify-center text-center">
+                  <div className="foundation-icon-wrap mx-auto mb-4">
+                    <Icon aria-hidden="true" size={28} strokeWidth={2} />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-navy">
-                    {value.title}
+                  <h3 className="foundation-card-title font-semibold text-navy">
+                    {card.title}
                   </h3>
-                  <p className="mt-3 leading-7 text-muted">{value.description}</p>
+                  <p className="foundation-card-text mt-3 text-muted">
+                    {card.description}
+                  </p>
                 </article>
               </Reveal>
             );

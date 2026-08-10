@@ -11,7 +11,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Capabilities",
   description:
-    "Explore HYA Tech capabilities in design, precision machining, custom fixtures, industrial automation, intelligent equipment, and production support.",
+    "Explore HYA TECH capabilities in design, precision machining, custom fixtures, industrial automation, intelligent equipment, and production support.",
   path: "/capabilities",
 });
 
@@ -35,10 +35,12 @@ export default function CapabilitiesPage() {
       <AssemblyTechnologies />
       <DeliveryModel />
 
-      <ContactCta
-        title="Need several capabilities working together?"
-        description="Share the production challenge rather than trying to preselect the answer. HYA Tech can help organize the engineering path."
-      />
+      <div className="mt-[25px]">
+        <ContactCta
+          title="Need several capabilities working together?"
+          description="Share the production challenge rather than trying to preselect the answer. HYA TECH can help organize the engineering path."
+        />
+      </div>
     </>
   );
 }

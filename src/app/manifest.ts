@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "HYA Tech",
-    short_name: "HYA Tech",
+    name: "HYA TECH",
+    short_name: "HYA TECH",
     description:
       "Precision manufacturing, industrial automation, fixtures, and engineering solutions.",
     start_url: "/",

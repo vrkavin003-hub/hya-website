@@ -32,14 +32,6 @@ export const projects = [
     image: "/images/assembly.jpg",
   },
   {
-    slug: "medical-components",
-    category: "Components",
-    title: "Medical components",
-    description:
-      "Precision-manufactured components for controlled medical manufacturing applications.",
-    image: "/images/medical.jpg",
-  },
-  {
     slug: "surface-grinding",
     category: "Machining",
     title: "Surface grinding",

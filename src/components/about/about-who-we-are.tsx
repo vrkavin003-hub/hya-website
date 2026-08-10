@@ -13,7 +13,7 @@ export function AboutWhoWeAre() {
             </h2>
             <div className="mt-6 space-y-5 leading-8 text-muted">
               <p>
-                HYA Tech is committed to becoming a leading industry player by
+                HYA TECH is committed to becoming a leading industry player by
                 expanding through deep collaboration with customers. Years of
                 practical manufacturing experience are reinforced by continued
                 investment in technology and talent.
@@ -24,11 +24,7 @@ export function AboutWhoWeAre() {
                 electronics industry and deliver innovation, quality, and
                 reliability.
               </p>
-              <p>
-                HYA Tech believes manufacturing excellence can—and should—be
-                cultivated within India using local talent, resources, and
-                values while staying connected to global know-how.
-              </p>
+              
             </div>
           </div>
         </Reveal>

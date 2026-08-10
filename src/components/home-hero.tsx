@@ -11,10 +11,10 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 
 const homeMetrics = [
-  { value: "7+", label: "Years of Experience", icon: Users },
-  { value: "500+", label: "Projects Completed", icon: Box },
-  { value: "98%", label: "Client Satisfaction", icon: Trophy },
-  { value: "5+", label: "Industries Served", icon: Globe2 },
+  { value: "20+", label: "Years of Industry Experience", icon: Trophy },
+  { value: "50,000+", label: "Fixtures Supplied", icon: Box },
+  { value: "5+", label: "Industry Verticals Served", icon: Globe2 },
+  { value: "5000+", label: "Projects Delivered", icon: Users },
 ];
 
 export function HomeHero() {
@@ -23,13 +23,14 @@ export function HomeHero() {
       eyebrow="Engineering excellence"
       title="Precision Engineering."
       accent="Powerful Solutions."
-      description="Precision Beyond Limits. Engineering the Future of Manufacturing "
+      subtitle="Precision Beyond Limits. Engineering the Future of Manufacturing"
+      description="Delivering precision and excellence since 2023."
       image="/images/heroes/home-hero-cnc.png"
-      imageAlt="CNC milling equipment machining a precision HYA Tech component"
+      imageAlt="CNC milling equipment machining a precision HYA TECH component"
       imagePosition="center center"
       variant="home"
-      primaryAction={{ label: "Explore Our Services", href: "/capabilities" }}
-      secondaryAction={{ label: "View Our Projects", href: "/projects" }}
+      primaryAction={{ label: "Our Services", href: "/capabilities" }}
+      secondaryAction={{ label: "Facility Overview", href: "/projects" }}
       highlights={[
         {
           title: "Quality Assured",
@@ -47,6 +48,7 @@ export function HomeHero() {
           icon: BriefcaseBusiness,
         },
       ]}
+      highlightsCta={{ label: "Get a Quote | Talk to an Engineer", href: "/contact" }}
     />
   );
 }

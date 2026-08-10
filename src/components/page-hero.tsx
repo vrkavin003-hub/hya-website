@@ -23,12 +23,14 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   accent?: string;
+  subtitle?: string;
   description: string;
   image: string;
   imageAlt: string;
   primaryAction?: HeroAction;
   secondaryAction?: HeroAction;
   highlights?: HeroHighlight[];
+  highlightsCta?: HeroAction;
   imagePosition?: string;
   rotatingImages?: RotatingHeroImage[];
   priority?: boolean;
@@ -39,12 +41,14 @@ export function PageHero({
   eyebrow,
   title,
   accent,
+  subtitle,
   description,
   image,
   imageAlt,
   primaryAction,
   secondaryAction,
   highlights = [],
+  highlightsCta,
   imagePosition = "center",
   rotatingImages = [],
   priority = true,
@@ -153,6 +157,9 @@ export function PageHero({
                   </>
                 ) : null}
               </h1>
+              {subtitle ? (
+                <p className="page-hero-subtitle">{subtitle}</p>
+              ) : null}
               <p>{description}</p>
 
               {primaryAction || secondaryAction ? (
@@ -195,6 +202,15 @@ export function PageHero({
                       </div>
                     );
                   })}
+                  {highlightsCta ? (
+                    <Link
+                      href={highlightsCta.href}
+                      className="page-hero-button page-hero-button-primary page-hero-highlights-cta"
+                    >
+                      {highlightsCta.label}
+                      <ArrowRight aria-hidden="true" size={18} />
+                    </Link>
+                  ) : null}
                 </div>
               ) : null}
             </div>

@@ -9,7 +9,7 @@ export function CareerRoles() {
         <SectionHeading
           eyebrow="Career paths"
           title="Roles connected to real manufacturing outcomes."
-          description="These positions are listed on the existing HYA Tech careers experience. Availability should be confirmed during application."
+          description="These positions are listed on the existing HYA TECH careers experience. Availability should be confirmed during application."
           align="center"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

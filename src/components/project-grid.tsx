@@ -8,7 +8,7 @@ import { projects } from "@/data/site";
 
 const categories = ["All", ...Array.from(new Set(projects.map((project) => project.category)))];
 
-export function ProjectGrid({ limit }: { limit?: number }) {
+export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gridClass?: string; compact?: boolean }) {
   const [filter, setFilter] = useState("All");
   const filtered = useMemo(
     () =>
@@ -41,40 +41,70 @@ export function ProjectGrid({ limit }: { limit?: number }) {
         </div>
       ) : null}
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className={gridClass ?? "grid gap-6 md:grid-cols-2 lg:grid-cols-3"}>
         {filtered.map((project) => (
           <motion.article
             key={project.slug}
-            className="group overflow-hidden rounded-[24px] border border-border bg-white shadow-[0_12px_40px_rgba(11,31,58,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(11,31,58,0.10)]"
+            className={`group overflow-hidden rounded-[20px] transition-all duration-300 ${
+              compact
+                ? "relative aspect-[3/4] bg-navy"
+                : "border border-border bg-white shadow-[0_12px_40px_rgba(11,31,58,0.05)] hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(11,31,58,0.10)]"
+            }`}
             initial={false}
-            whileHover={{ y: -4 }}
+            whileHover={{ y: compact ? -4 : -4 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-alt">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
-              />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between gap-4">
-                <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
+            {compact ? (
+              <>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="absolute top-3 left-3 rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-blue">
                   {project.category}
                 </span>
-                <ArrowUpRight
-                  aria-hidden="true"
-                  className="text-slate-400 transition-colors group-hover:text-blue"
-                  size={19}
-                />
-              </div>
-              <h3 className="mt-5 text-xl font-semibold text-navy">
-                {project.title}
-              </h3>
-              <p className="mt-3 leading-7 text-muted">{project.description}</p>
-            </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-base font-semibold text-white">
+                    {project.title}
+                  </h3>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="relative aspect-[4/3] overflow-hidden bg-alt">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
+                      {project.category}
+                    </span>
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="text-slate-400 transition-colors group-hover:text-blue"
+                      size={19}
+                    />
+                  </div>
+                  <h3 className="mt-5 text-xl font-semibold text-navy">
+                    {project.title}
+                  </h3>
+                  {!compact ? (
+                    <p className="mt-3 leading-7 text-muted">{project.description}</p>
+                  ) : null}
+                </div>
+              </>
+            )}
           </motion.article>
         ))}
       </div>

@@ -8,7 +8,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Contact HYA Tech in Hosur to discuss precision manufacturing, custom fixtures, industrial automation, intelligent equipment, and production support.",
+    "Contact HYA TECH in Hosur to discuss precision manufacturing, custom fixtures, industrial automation, intelligent equipment, and production support.",
   path: "/contact",
 });
 

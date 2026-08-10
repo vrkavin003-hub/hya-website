@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = createMetadata({
   title: "Terms of Service",
-  description: "Website terms for the HYA Tech corporate website.",
+  description: "Website terms for the HYA TECH corporate website.",
   path: "/terms",
 });
 
@@ -20,7 +20,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-2xl font-semibold text-navy">Website information</h2>
           <p className="mt-3">
-            This website provides general information about HYA Tech’s
+            This website provides general information about HYA TECH’s
             capabilities. It does not constitute a binding technical proposal,
             quotation, certification, warranty, or delivery commitment.
           </p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-2xl font-semibold text-navy">Intellectual property</h2>
           <p className="mt-3">
-            HYA Tech branding and original website content may not be reused
+            HYA TECH branding and original website content may not be reused
             without permission. Third-party technology names remain the property
             of their respective owners.
           </p>

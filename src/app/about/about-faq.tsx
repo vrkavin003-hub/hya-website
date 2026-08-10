@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
 import { ButtonLink } from "@/components/ui";
 
 type FaqItem = {
@@ -237,7 +238,11 @@ export function AboutFaq() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
                   <span>Answer</span>
-                  <span aria-hidden="true">→</span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    size={14}
+                    className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
               </div>
 
@@ -272,7 +277,7 @@ export function AboutFaq() {
           and build resilient supply chains.
         </p>
         <ButtonLink href="/contact" className="mt-5">
-          Contact Us
+          Contact our Industry Experts Today
         </ButtonLink>
       </div>
     </div>
