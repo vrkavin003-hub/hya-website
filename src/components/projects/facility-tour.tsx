@@ -8,21 +8,21 @@ import { SectionHeading } from "@/components/ui";
 
 const facilitySpaces = [
   {
-    src: "/images/factory-team.jpg",
+    src: "/images/facility/modern-workspace.png",
     alt: "Modern workstations inside the HYA TECH facility",
     title: "Modern Workspace",
     description:
       "Technology-ready workspaces designed to support focused, productive engineering work.",
   },
   {
-    src: "/images/intelligentmanufacturing.jpg",
+    src: "/images/facility/technology-environment1.png",
     alt: "Technology environment with intelligent manufacturing equipment",
     title: "Technology Environment",
     description:
       "Machining and automation technology arranged to support precision work from start to finish.",
   },
   {
-    src: "/images/team.jpg",
+    src: "/images/facility/collaboration-space1.png",
     alt: "Collaboration space where HYA TECH teams work together",
     title: "Collaboration Space",
     description:

@@ -2,18 +2,21 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Box, CircuitBoard, Cog, Wrench } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { projects } from "@/data/site";
 
 const categories = ["All", ...Array.from(new Set(projects.map((project) => project.category)))];
 
-const categoryIcons: Record<string, LucideIcon> = {
-  Machining: Cog,
-  Components: Box,
-  Fixtures: Wrench,
-  Automation: CircuitBoard,
+const facilityImages: Record<string, string> = {
+  "cnc-machining-center": "/images/facility/cnc.png",
+  "high-precision-components": "/images/facility/high-precision.png",
+  "custom-engineered-fixtures": "/images/facility/custom-engineered-fixture.png",
+  "assembly-jigs": "/images/facility/assembly-jigs.png",
+  "surface-grinding": "/images/facility/surface-grinding.png",
+  "electrical-discharge-machining": "/images/facility/electric-discharge-machining.png",
+  "assembly-automation": "/images/facility/assembly-automation.png",
+  "automated-riveting": "/images/facility/riveting-system.png",
 };
 
 export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gridClass?: string; compact?: boolean }) {
@@ -51,7 +54,6 @@ export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gri
 
       <div className={gridClass ?? "grid gap-6 md:grid-cols-2 lg:grid-cols-3"}>
         {filtered.map((project) => {
-          const Icon = categoryIcons[project.category] ?? Cog;
           return (
             <motion.article
               key={project.slug}
@@ -86,13 +88,13 @@ export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gri
                 </>
               ) : (
                 <>
-                  <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-lightblue via-alt to-white">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_62%,rgba(22,119,184,0.16),transparent_62%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <Icon
-                      aria-hidden="true"
-                      size={72}
-                      strokeWidth={1.3}
-                      className="relative text-blue transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-110"
+                  <div className="relative aspect-[3/2] overflow-hidden bg-alt">
+                    <Image
+                      src={facilityImages[project.slug] ?? project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.035]"
                     />
                   </div>
                   <div className="p-6">
