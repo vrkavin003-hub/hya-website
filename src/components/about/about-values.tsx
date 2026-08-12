@@ -8,8 +8,8 @@ export function AboutValues() {
       <div className="site-container">
         <SectionHeading
           eyebrow="Our values"
-          title="Standards that shape everyday decisions."
-          description="The values published by HYA TECH have been reorganized into a clearer operating framework."
+          title="Standards that shape everyday decisions"
+          description="The operating framework behind HYA TECH’s success"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {values.map((value, index) => {

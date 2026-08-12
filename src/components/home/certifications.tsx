@@ -9,7 +9,7 @@ export function Certifications() {
       <div className="site-container">
         <SectionHeading
           eyebrow="Certified standards"
-          title="Quality systems built for dependable delivery."
+          title="Quality systems built for dependable delivery"
           description="Internationally recognized management standards guide quality, environmental responsibility, medical-device manufacturing, and workplace safety."
           align="center"
           invert

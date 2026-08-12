@@ -8,7 +8,7 @@ export function CareersApply() {
         <div>
           <span className="eyebrow">Apply</span>
           <h2 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-navy sm:text-5xl">
-            Start with a concise introduction.
+            Start with a concise introduction
           </h2>
           <p className="mt-6 leading-8 text-muted">
             Complete the form to prepare an email application. Attach your

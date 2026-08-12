@@ -41,7 +41,7 @@ export function ProcessSteps() {
       <div className="site-container">
         <SectionHeading
           eyebrow="End-to-End Delivery"
-          title="End-to-End Delivery"
+          title="Process Flow"
           description="From concept to mass production, your one-step precision partner – HYATECH."
           invert
         />

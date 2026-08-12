@@ -20,7 +20,7 @@ export function AboutPreview() {
         <Reveal delay={0.06}>
           <span className="eyebrow">Who we are</span>
           <h2 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-navy sm:text-5xl">
-            Engineering excellence, built through close collaboration.
+            Engineering excellence - built through close collaboration
           </h2>
           <div className="mt-6 space-y-5 text-base leading-8 text-muted">
             <p>

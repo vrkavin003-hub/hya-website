@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui";
 
 const foundationCards = [
   {
-    title: "Excellence & precision in every Order",
+    title: "Excellence & precision in every orders",
     description:
       "Committed to delivering exceptional quality, precision, and reliability in every project, ensuring results that consistently exceed customer expectations.",
     icon: Target,
@@ -24,7 +24,7 @@ const foundationCards = [
   {
     title: "Expert Team",
     description:
-      "Driven by a highly  technicalskilled team of engineering professionals dedicated to providing innovative solutions, technical expertise, and dependable support throughout every stage of your project.",
+      "Driven by a highly  technical skilled team of engineering professionals dedicated to providing innovative solutions, technical expertise, and dependable support throughout every stage of your project.",
     icon: ShieldCheck,
   },
   {
@@ -41,7 +41,7 @@ export function ValuesHighlights() {
       <div className="mx-auto w-full max-w-screen-2xl px-6 sm:px-10">
         <SectionHeading
           eyebrow="Our foundation"
-          title="Clear values behind precise work."
+          title="Clear values behind precise work"
           description="A practical culture of excellence, customer focus, safety, responsibility, and continuous improvement."
           align="center"
         />

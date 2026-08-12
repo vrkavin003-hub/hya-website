@@ -8,7 +8,7 @@ export function AboutJourney() {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
             eyebrow="Our story"
-            title="A journey toward engineering independence."
+            title="A journey toward's engineering independence"
             description="Every milestone represents an expansion of practical capability—from engineering support to manufacturing, tooling, automation, and international partnerships."
           />
         </div>

@@ -7,8 +7,8 @@ export function CareersCulture() {
       <div className="site-container">
         <SectionHeading
           eyebrow="Culture"
-          title="The same values guide the work and the workplace."
-          description="Precision, innovation, teamwork, safety, responsibility, and customer focus are expected to show up in everyday decisions."
+          title="Values that guide the work and workspace"
+          description="At HYA TECH,precision, innovation, teamwork, safety, responsibility, and customer focus are expected to show up in everyday decisions."
         />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {values.slice(0, 6).map((value) => {

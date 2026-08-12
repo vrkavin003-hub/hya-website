@@ -20,10 +20,10 @@ export default function CapabilitiesPage() {
     <>
       <StructuredData data={serviceSchemas} />
       <PageHero
-        eyebrow="Capabilities"
+        eyebrow="Our Core Services"
         title="Complete manufacturing"
-        accent="capabilities."
-        description="From concept to production, we deliver precision engineering, advanced manufacturing, automation, and lifecycle support—seamlessly and reliably."
+        accent="capabilities"
+        description="From concept to production, we deliver precision engineering, advanced manufacturing, automation, and lifecycle support - seamlessly and reliably."
         image="/images/heroes/capabilities-hero.webp"
         imageAlt="CNC machine producing a precision metal component"
         imagePosition="54% center"

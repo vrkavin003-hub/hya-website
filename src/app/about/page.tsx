@@ -23,8 +23,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About HYA TECH"
-        title="Engineering today."
-        accent="Empowering tomorrow."
+        title="Engineering today"
+        accent="Empowering tomorrow"
         description="HYA TECH is a precision engineering company committed to delivering smart, reliable, and future-ready solutions. We combine advanced technology with skilled expertise to build long-lasting value for our clients and communities."
         image="/images/heroes/about-hero.webp"
         imageAlt="Precision manufacturing laser equipment operating in a modern factory"

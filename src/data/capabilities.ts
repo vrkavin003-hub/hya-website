@@ -86,23 +86,7 @@ export const capabilityGroups = [
     image: "/images/automation.jpg",
     imageAlt: "Automation and turnkey systems capability",
   },
-  {
-    slug: "intelligent-equipment",
-    title: "Intelligent equipment",
-    short:
-      "Connected manufacturing equipment designed for better visibility and control.",
-    description:
-      "We develop smart equipment for modern industrial operations. These systems support better control, efficiency, and reliable performance.",
-    icon: BrainCircuit,
-    items: [
-      "PLC-controlled equipment",
-      "Sensors and traceability",
-      "Test and inspection systems",
-      "Real-time monitoring",
-    ],
-    image: "/images/intelligentmanufacturing.jpg",
-    imageAlt: "Intelligent equipment capability",
-  },
+ 
   {
     slug: "sheet-metal-bending",
     title: "Sheet Metal Bending",

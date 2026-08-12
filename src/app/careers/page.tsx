@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Careers",
   description:
-    "Explore engineering, machining, quality, and assembly career opportunities with HYA TECH in precision manufacturing and automation.",
+    "Explore engineering, machining, quality, and assembly career opportunities with HYA TECH in precision manufacturing and automation",
   path: "/careers",
 });
 
@@ -19,7 +19,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Build your future in precision"
-        accent="engineering."
+        accent="engineering"
         description="Join a team focused on quality, innovation, and manufacturing excellence across design, production, automation, and customer delivery."
         image="/images/heroes/careers-future-hero.png"
         imageAlt="Manufacturing engineer viewing a digital career development pathway"

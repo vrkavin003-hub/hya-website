@@ -92,8 +92,9 @@ export function WhyHyaTech() {
         <div>
           <SectionHeading
             eyebrow="Why HYA Tech"
-            title="Work close to the problem—and the result."
-            description="HYA Tech's work brings engineering, manufacturing, and automation together. That creates room to learn across disciplines and see ideas become operating solutions."
+            title="Grow yourself while growing through the industry"
+            description="Work in the industry most fast paced industry vertical of EMS industry giants in an organization that values
+            a prolific work-life culture and employee engaement."
           />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">

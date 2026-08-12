@@ -54,7 +54,7 @@ export function SelectedWork() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Selected work"
-            title="Manufacturing problems made tangible."
+            title="Manufacturing problems made tangible"
           />
           <ButtonLink href="/projects" variant="secondary">
             Explore projects

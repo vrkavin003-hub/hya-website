@@ -41,7 +41,7 @@ export function CoreServices() {
                 What we do
               </span>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-navy sm:text-4xl">
-                Our core services
+                OUR CORE SERVICES
               </h2>
               <span className="mx-auto h-1 w-12 rounded-full bg-blue" />
             </div>

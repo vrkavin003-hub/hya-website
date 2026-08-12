@@ -11,7 +11,7 @@ export function CapabilitiesPreview() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Core capabilities"
-            title="One partner across the manufacturing lifecycle."
+            title="One partner across the manufacturing lifecycle"
             description="Focused capability groups make it easier to move from engineering need to a supported production outcome."
           />
           <ButtonLink href="/capabilities" variant="secondary">

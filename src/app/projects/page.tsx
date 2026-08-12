@@ -13,7 +13,7 @@ import { createMetadata } from "@/lib/metadata";
 export const metadata: Metadata = createMetadata({
   title: "Facility",
   description:
-    "Explore the HYA TECH facility — a technology-driven environment built for innovation, precision manufacturing, collaboration, and continuous growth.",
+    "Explore the HYA TECH facility — a technology-driven environment built for innovation, precision manufacturing, collaboration, and continuous growth",
   path: "/projects",
 });
 
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Our Facility"
         title="Where Ideas Become"
-        accent="Reality."
+        accent="Reality"
         description="A technology-driven environment designed for innovation, collaboration, and continuous growth."
         image="/images/heroes/projects-hero.webp"
         imageAlt="Inside the HYA TECH manufacturing facility"

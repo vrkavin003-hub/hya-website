@@ -8,7 +8,7 @@ export function MissionVision() {
       <div className="site-container">
         <SectionHeading
           eyebrow="Our foundation"
-          title="Mission, vision, and the way we work."
+          title="Mission, vision, and the way we work"
           description="Ambition matters most when it is supported by practical capability, responsible behavior, and transparent partnerships."
           align="center"
         />

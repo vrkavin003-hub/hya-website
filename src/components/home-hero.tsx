@@ -21,9 +21,9 @@ export function HomeHero() {
   return (
     <PageHero
       eyebrow="Engineering excellence"
-      title="Precision Engineering."
-      accent="Powerful Solutions."
-      subtitle="Precision Beyond Limits. Engineering the Future of Manufacturing"
+      title="Precision Engineering"
+      accent="Powerful Solutions"
+      subtitle="Precision Beyond Limits - Engineering the Future of Manufacturing"
       description="Delivering precision and excellence since 2023."
       image="/images/heroes/home-hero-cnc.png"
       imageAlt="CNC milling equipment machining a precision HYA TECH component"

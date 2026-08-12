@@ -46,7 +46,7 @@ export const certifications = [
 
 export const values = [
   {
-    title: "Excellence & precision",
+    title: "Excellence & Precision",
     description:
       "Delivering accurate, high-quality automation and fixture solutions that perform reliably.",
     icon: Target,
@@ -58,13 +58,13 @@ export const values = [
     icon: Lightbulb,
   },
   {
-    title: "Customer focus",
+    title: "Customer Focus",
     description:
       "Listening carefully and shaping solutions around the realities of each manufacturing need.",
     icon: HeartHandshake,
   },
   {
-    title: "Teamwork & safety",
+    title: "Teamwork & Safety",
     description:
       "Collaborating openly while prioritizing the safety of people and the working environment.",
     icon: Users,
@@ -94,7 +94,7 @@ export const timeline = [
     year: "2019",
     title: "Winning Industry Confidence",
     description:
-      "Provided engineering support for automation equipment installation, qualification, and maintenance in the Major EMS industry Giants.",
+      "Provided engineering support for automation equipment installation, qualification, and maintenance in the Major EMS industry.",
   },
   {
     year: "2020",
@@ -130,7 +130,7 @@ export const timeline = [
     year: "2025",
     title: "Crossing Global Boundaries",
     description:
-      "Established partnerships acrossMalaysia and Singapore for capacity sharing building a consistently evolving brand.",
+      "Established partnerships across Malaysia and Singapore for capacity sharing building a consistently evolving brand.",
   },
   {
     year: "2026",

@@ -9,7 +9,7 @@ export function AboutWhoWeAre() {
           <div>
             <span className="eyebrow">Who we are</span>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-navy sm:text-5xl">
-              Engineering excellence cultivated in India.
+              Engineering excellence cultivated in India
             </h2>
             <div className="mt-6 space-y-5 leading-8 text-muted">
               <p>

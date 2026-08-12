@@ -9,7 +9,7 @@ export function CompanyJourney() {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
             eyebrow="Company journey"
-            title="Built step by step, with each capability earned."
+            title="Built step by step, with each capability earned"
             description="From an engineering-services origin in Madurai to manufacturing in Hosur and international capability partnerships."
           />
           <div className="mt-8">

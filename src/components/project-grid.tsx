@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { projects } from "@/data/site";
+import { ProjectShowcase } from "@/components/projects/project-showcase";
 
 const categories = ["All", ...Array.from(new Set(projects.map((project) => project.category)))];
 
@@ -19,8 +20,11 @@ const facilityImages: Record<string, string> = {
   "automated-riveting": "/images/facility/riveting-system.png",
 };
 
+type Project = (typeof projects)[number];
+
 export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gridClass?: string; compact?: boolean }) {
   const [filter, setFilter] = useState("All");
+  const [selected, setSelected] = useState<{ project: Project; imageSrc: string } | null>(null);
   const filtered = useMemo(
     () =>
       (filter === "All"
@@ -29,6 +33,10 @@ export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gri
       ).slice(0, limit ?? projects.length),
     [filter, limit],
   );
+
+  const openProject = (project: Project) => {
+    setSelected({ project, imageSrc: facilityImages[project.slug] ?? project.image });
+  };
 
   return (
     <>
@@ -65,6 +73,24 @@ export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gri
               initial={false}
               whileHover={{ y: compact ? -4 : -4 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
+              {...(compact
+                ? {}
+                : {
+                    role: "button",
+                    tabIndex: 0,
+                    "aria-haspopup": "dialog",
+                    "aria-label": `Open ${project.title} details`,
+                    onClick: (event: React.MouseEvent<HTMLElement>) => {
+                      event.currentTarget.focus();
+                      openProject(project);
+                    },
+                    onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openProject(project);
+                      }
+                    },
+                  })}
             >
               {compact ? (
                 <>
@@ -119,6 +145,17 @@ export function ProjectGrid({ limit, gridClass, compact }: { limit?: number; gri
           );
         })}
       </div>
+
+      <AnimatePresence>
+        {selected ? (
+          <ProjectShowcase
+            key={selected.project.slug}
+            project={selected.project}
+            imageSrc={selected.imageSrc}
+            onClose={() => setSelected(null)}
+          />
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
