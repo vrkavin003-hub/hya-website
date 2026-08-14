@@ -118,7 +118,7 @@ export const capabilityGroups = [
       "Clean-edge processing",
       "Custom production batches",
     ],
-    image: "/images/laser-cutting-machine.png",
+    image: "/images/Laser-cutting1.png",
     imageAlt: "Laser cutting capability",
   },
   {

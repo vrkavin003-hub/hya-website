@@ -29,6 +29,7 @@ export function HomeHero() {
       imageAlt="CNC milling equipment machining a precision HYA TECH component"
       imagePosition="center center"
       variant="home"
+      descriptionAtBottom
       primaryAction={{ label: "Our Services", href: "/capabilities" }}
       secondaryAction={{ label: "Facility Overview", href: "/projects" }}
       highlights={[

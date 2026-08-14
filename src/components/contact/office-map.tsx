@@ -88,6 +88,7 @@ export function OfficeMap({
         zoom={10}
         scrollWheelZoom
         zoomControl={false}
+        attributionControl={false}
         className="z-0"
         style={{ position: "absolute", inset: 0 }}
       >

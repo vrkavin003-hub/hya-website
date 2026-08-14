@@ -35,6 +35,7 @@ type PageHeroProps = {
   rotatingImages?: RotatingHeroImage[];
   priority?: boolean;
   variant?: "page" | "home" | "about";
+  descriptionAtBottom?: boolean;
 };
 
 export function PageHero({
@@ -53,6 +54,7 @@ export function PageHero({
   rotatingImages = [],
   priority = true,
   variant = "page",
+  descriptionAtBottom = false,
 }: PageHeroProps) {
   const isHome = variant === "home";
   const isAbout = variant === "about";
@@ -160,7 +162,7 @@ export function PageHero({
               {subtitle ? (
                 <p className="page-hero-subtitle">{subtitle}</p>
               ) : null}
-              <p>{description}</p>
+              {descriptionAtBottom ? null : <p>{description}</p>}
 
               {primaryAction || secondaryAction ? (
                 <div className="page-hero-actions">
@@ -212,6 +214,10 @@ export function PageHero({
                     </Link>
                   ) : null}
                 </div>
+              ) : null}
+
+              {descriptionAtBottom ? (
+                <p className="page-hero-description-bottom">{description}</p>
               ) : null}
             </div>
           </div>

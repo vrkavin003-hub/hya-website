@@ -46,7 +46,7 @@ function OfficeLocationCards({
   onSelect: (location: CompanyLocation) => void;
 }) {
   return (
-    <div className="location-star-grid">
+    <div className="office-location-grid">
       {locations.map((location) => {
         const isSelected = location.city === selected.city;
         return (
@@ -77,7 +77,7 @@ function OfficeLocationCards({
                 <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
                   {location.status}
                 </span>
-                <CountryFlag code={location.flag} />
+                <CountryFlag code={location.flag} className="office-flag-glow" />
               </div>
             </div>
             <p className="mt-3 text-sm font-semibold text-slate-700">
