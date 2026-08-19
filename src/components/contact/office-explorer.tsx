@@ -66,14 +66,14 @@ function OfficeLocationCards({
               isSelected ? "office-card-selected" : ""
             }`}
           >
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div>
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
                 <p className="text-sm font-semibold text-blue">{location.region}</p>
                 <h3 className="mt-2 text-xl font-semibold text-navy">
                   {location.city}
                 </h3>
               </div>
-              <div className="flex flex-col items-end gap-2">
+              <div className="flex shrink-0 flex-col items-end gap-2">
                 <span className="rounded-full bg-lightblue px-3 py-1 text-xs font-semibold text-blue">
                   {location.status}
                 </span>
