@@ -31,7 +31,7 @@ export function AboutWhoWeAre() {
         <Reveal delay={0.06}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-alt shadow-[0_24px_65px_rgba(11,31,58,0.11)]">
             <Image
-              src="/images/intelligentmanufacturing.jpg"
+              src="/images/who we are.png"
               alt="Advanced manufacturing equipment"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

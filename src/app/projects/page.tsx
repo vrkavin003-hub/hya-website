@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui";
 import { FacilityCollage } from "@/components/projects/facility-collage";
 import { FacilityFeatures } from "@/components/projects/facility-features";
 import { FacilityMetrics } from "@/components/projects/facility-metrics";
-import { FacilityProcess } from "@/components/projects/facility-process";
 import { FacilityTour } from "@/components/projects/facility-tour";
 import { createMetadata } from "@/lib/metadata";
 
@@ -34,7 +33,6 @@ export default function ProjectsPage() {
 
       <FacilityTour />
       <FacilityFeatures />
-      <FacilityProcess />
       <FacilityCollage />
       <FacilityMetrics />
 

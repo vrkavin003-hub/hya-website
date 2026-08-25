@@ -8,13 +8,13 @@ export function AboutPreview() {
       <div className="site-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-white shadow-[0_22px_60px_rgba(11,31,58,0.09)]">
-            <Image
-              src="/images/intelligentmanufacturing.jpg"
-              alt="Intelligent manufacturing equipment"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+<Image
+                src="/images/who we are.png"
+                alt="Who we are"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
           </div>
         </Reveal>
         <Reveal delay={0.06}>

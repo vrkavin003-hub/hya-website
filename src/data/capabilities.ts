@@ -32,7 +32,7 @@ export const capabilityGroups = [
       "Design reviews",
       "Prototyping and validation",
     ],
-    image: "/images/offering1.jpg",
+    image: "/images/Design and engineering.png",
     imageAlt: "Design and engineering capability",
   },
   {
@@ -152,7 +152,7 @@ export const capabilityGroups = [
       "Installation and qualification",
       "Maintenance support",
     ],
-    image: "/images/offering5.jpg",
+    image: "/images/Industrial spares & support.png",
     imageAlt: "Industrial spares and support capability",
   },
 ];

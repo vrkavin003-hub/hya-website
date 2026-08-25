@@ -8,6 +8,7 @@ import { SiteLoader } from "@/components/site-loader";
 import { StructuredData } from "@/components/structured-data";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { companySchema, siteConfig } from "@/data/site";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -55,13 +56,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+<head>
         <script
+          id="theme-script"
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("hya-theme");var d=t==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.dataset.theme=d?"dark":"light";r.style.colorScheme=d?"dark":"light"}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("hya-theme");var d=t==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.dataset.theme=d?"dark":"light";r.style.colorScheme=d?"dark":"light"}catch(e){}})();`
           }}
         />
-      </head>
+</head>
       <body>
         <SiteLoader />
         <StructuredData data={companySchema} />

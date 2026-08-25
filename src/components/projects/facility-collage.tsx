@@ -6,19 +6,17 @@ import { SectionHeading } from "@/components/ui";
 
 const collageImages = [
   {
-    src: "/images/cnc.jpg",
-    alt: "CNC machining equipment in the HYA TECH facility",
+    src: "/images/inside hya.png",
+    alt: "HYA TECH team collaborating in the facility",
     className: "absolute right-0 top-0 h-full w-[62%] z-[1]",
-    priority: true,
   },
   {
-    src: "/images/automation.jpg",
-    alt: "Automation and assembly equipment at HYA TECH",
+    src: "/images/place to collaborate1.png",
+    alt: "HYA TECH team collaborating in the facility",
     className: "absolute left-0 top-0 w-[40%] h-[38%] z-[3]",
-    priority: false,
   },
   {
-    src: "/images/team.jpg",
+    src: "/images/place to collaborate2.png",
     alt: "HYA TECH team collaborating in the facility",
     className: "absolute bottom-0 left-0 w-[46%] h-[52%] z-[2]",
     priority: false,
