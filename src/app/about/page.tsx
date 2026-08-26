@@ -7,6 +7,7 @@ import { MissionVision } from "@/components/about/mission-vision";
 import { AboutValues } from "@/components/about/about-values";
 import { AboutJourney } from "@/components/about/about-journey";
 import { AboutFaqSection } from "@/components/about/about-faq-section";
+import { LeadershipPerspectives } from "@/components/about/leadership-perspectives";
 import { Certifications } from "@/components/home/certifications";
 import { projects } from "@/data/site";
 import { createMetadata } from "@/lib/metadata";
@@ -47,6 +48,7 @@ export default function AboutPage() {
       <AboutValues />
       <AboutJourney />
       <AboutFaqSection />
+      <LeadershipPerspectives />
       <Certifications />
       <div style={{ height: "25px" }} />
       <ContactCta />
