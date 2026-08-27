@@ -9,29 +9,22 @@ import {
   Trophy,
   Users,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
-import { useState, useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const homeMetricsRaw = [
-  { raw: "20+", label: "Years of Industry Experience", icon: Trophy },
-  { raw: "50,000+", label: "Fixtures Supplied", icon: Box },
-  { raw: "5+", label: "Industry Verticals Served", icon: Globe2 },
-  { raw: "5000+", label: "Projects Delivered", icon: Users },
+  { value: 20, suffix: "+", label: "Years of Industry Experience", icon: Trophy },
+  { value: 50000, suffix: "+", label: "Fixtures Supplied", icon: Box },
+  { value: 5, suffix: "+", label: "Industry Verticals Served", icon: Globe2 },
+  { value: 5000, suffix: "+", label: "Projects Delivered", icon: Users },
 ];
 
-// Parse target numeric values from raw strings (remove + and commas)
-const targetValues = homeMetricsRaw.map((m) =>
-  parseInt(m.raw.replace("+", "").replace(/,/g, ""), 10),
-);
-
-// Display metrics with icons and suffixes preserved
-const displayMetrics = homeMetricsRaw.map((m) => ({
-  raw: m.raw,
-  label: m.label,
-  icon: m.icon,
-  suffix: m.raw.includes("+") ? "+" : "",
-}));
+const numberFormatter = new Intl.NumberFormat("en-IN");
 
 export function HomeHero() {
   return (
@@ -72,101 +65,138 @@ export function HomeHero() {
 
 export function HomeStats() {
   const hasAnimated = useRef(false);
-  const [displayValues, setDisplayValues] = useState(
-    targetValues.map(() => 0)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [displayValues, setDisplayValues] = useState(() =>
+    homeMetricsRaw.map(() => 0),
   );
-  const reducedMotion = typeof window !== "undefined" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // IntersectionObserver to detect when stats section enters viewport
   useEffect(() => {
-    if (hasAnimated.current) return;
+    const section = sectionRef.current;
 
-    const section = document.querySelector(".home-stats-section");
-    if (!section) return;
+    if (!section || hasAnimated.current) {
+      return;
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const panel = section.querySelector(".home-stats-panel");
+    const icons = gsap.utils.toArray<HTMLElement>(".stats-icon", section);
+    const values = gsap.utils.toArray<HTMLElement>(".stats-value", section);
+    const labels = gsap.utils.toArray<HTMLElement>(".stats-label", section);
+
+    if (reduceMotion) {
+      hasAnimated.current = true;
+      requestAnimationFrame(() => {
+        setDisplayValues(homeMetricsRaw.map((metric) => metric.value));
+      });
+      gsap.set([panel, icons, values, labels], { clearProps: "all" });
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.set(panel, { autoAlpha: 0, y: 18 });
+      gsap.set(icons, { autoAlpha: 0, scale: 0.86 });
+      gsap.set(values, { autoAlpha: 0, y: 8 });
+      gsap.set(labels, { autoAlpha: 0, y: 10 });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 82%",
+        once: true,
+        onEnter: () => {
           hasAnimated.current = true;
 
-          // Start counting animation for each metric
-          targetValues.forEach((target, index) => {
-            const suffix = displayMetrics[index].suffix;
+          const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-            const wrapper = document.querySelector(
-              `.stats-item[data-index="${index}"]`
+          timeline
+            .to(panel, { autoAlpha: 1, y: 0, duration: 0.58 })
+            .to(
+              icons,
+              {
+                autoAlpha: 1,
+                scale: 1,
+                duration: 0.44,
+                stagger: 0.09,
+              },
+              "-=0.25",
+            )
+            .to(
+              values,
+              { autoAlpha: 1, y: 0, duration: 0.34, stagger: 0.08 },
+              "-=0.18",
             );
-            if (!wrapper) return;
 
-            const startTime = performance.now();
-            const duration = 1800; // 1.8 seconds
+          homeMetricsRaw.forEach((metric, index) => {
+            const counter = { value: 0 };
 
-            const animate = (timestamp: number) => {
-              const elapsed = timestamp - startTime;
-              const progress = Math.min(elapsed / duration, 1);
+            timeline.to(
+              counter,
+              {
+                value: metric.value,
+                duration: metric.value > 1000 ? 1.45 : 1.2,
+                ease: "power3.out",
+                onUpdate() {
+                  const currentValue = Math.round(counter.value);
 
-              // eased cubic: 1 - (1 - progress)^3
-              const eased = 1 - Math.pow(1 - progress, 3);
-              const current = Math.round(target * eased);
+                  setDisplayValues((previous) => {
+                    if (previous[index] === currentValue) {
+                      return previous;
+                    }
 
-              setDisplayValues((prev) => {
-                const arr = [...prev];
-                arr[index] = current;
-                return arr;
-              });
+                    const next = [...previous];
+                    next[index] = currentValue;
+                    return next;
+                  });
+                },
+                onComplete() {
+                  setDisplayValues((previous) => {
+                    if (previous[index] === metric.value) {
+                      return previous;
+                    }
 
-              if (progress < 1) {
-                animationFrame = requestAnimationFrame(animate);
-              } else {
-                // Ensure final value is displayed
-                setDisplayValues((prev) => {
-                  const arr = [...prev];
-                  arr[index] = target;
-                  return arr;
-                });
-              }
-            };
-
-            let animationFrame;
-            animate(performance.now());
+                    const next = [...previous];
+                    next[index] = metric.value;
+                    return next;
+                  });
+                },
+              },
+              index === 0 ? "-=0.18" : "<",
+            );
           });
 
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-80px", threshold: 0.1 }
-    );
+          timeline.to(
+            labels,
+            { autoAlpha: 1, y: 0, duration: 0.42, stagger: 0.08 },
+            "-=0.7",
+          );
+        },
+      });
+    }, section);
 
-    observer.observe(section);
-  }, [hasAnimated.current]);
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   return (
-    <section className="home-stats-section" aria-label="Company statistics">
+    <section
+      ref={sectionRef}
+      className="home-stats-section"
+      aria-label="Company statistics"
+    >
       <div className="site-container home-stats-container">
         <Reveal>
           <div className="home-stats-panel">
-            {displayMetrics.map((metric, index) => {
+            {homeMetricsRaw.map((metric, index) => {
               const Icon = metric.icon;
-              const target = targetValues[index];
-              const suffix = metric.suffix;
+              const value = `${numberFormatter.format(displayValues[index])}${metric.suffix}`;
 
               return (
-                <div
-                  key={metric.label}
-                  className="stats-item"
-                  data-index={index}
-                  role="article"
-                  aria-label={`${metric.label}: ${displayValues[index]} ${suffix}`}
-                >
-                  <span className="stats-icon">
-                    <Icon aria-hidden="true" size={28} strokeWidth={2} />
+                <div key={metric.label} className="stats-item">
+                  <span className="stats-icon" aria-hidden="true">
+                    <Icon size={25} strokeWidth={1.8} />
                   </span>
-                  <span className="stats-value">
-                    {displayValues[index]}{" "}{suffix}
-                  </span>
-                  <span className="stats-label">
-                    <small>{metric.label}</small>
-                  </span>
+                  <strong className="stats-value">{value}</strong>
+                  <small className="stats-label">{metric.label}</small>
                 </div>
               );
             })}

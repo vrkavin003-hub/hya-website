@@ -1,0 +1,1 @@
+.image-reveal { clip-path: inset(0 100% 0 0); transition: clip-path 1s ease-out; } .image-reveal.revealed { clip-path: inset(0 0% 0 0); } .reveal-on-load { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; } .reveal-on-load.revealed { opacity: 1; transform: translateY(0); }

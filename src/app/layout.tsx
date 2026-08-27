@@ -57,8 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
 <head>
-        <script
+        <Script
           id="theme-script"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem("hya-theme");var d=t==="dark";var r=document.documentElement;r.classList.toggle("dark",d);r.dataset.theme=d?"dark":"light";r.style.colorScheme=d?"dark":"light"}catch(e){}})();`
           }}

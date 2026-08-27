@@ -34,7 +34,7 @@ export function CoreServices() {
   return (
     <section className="core-services home-core-services">
       <div className="mx-auto w-full max-w-[1200px] px-6 sm:px-10">
-        <Reveal>
+        <Reveal variant="fade-up">
           <div className="service-panel rounded-[30px] border border-border bg-white p-5 shadow-[0_26px_75px_rgba(6,29,54,0.14)] sm:p-8">
             <div className="mb-8 flex flex-col gap-3 text-center">
               <span className="mx-auto text-xs font-bold uppercase tracking-[0.16em] text-blue">

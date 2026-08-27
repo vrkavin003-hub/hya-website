@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { SectionHeading } from "@/components/ui";
-import { ArrowDown } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const leadershipPerspectives = [
   {
@@ -34,180 +36,219 @@ const leadershipPerspectives = [
 const AUTOPLAY_INTERVAL = 5500;
 
 export function LeadershipPerspectives() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const mouseLeaveRef = useRef(true);
+  const [activeIndex, setActiveIndex] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isHoveredRef = useRef(false);
+  const reducedMotionRef = useRef(false);
 
-  // Check for reduced motion
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    mq.addEventListener("change", setReducedMotion);
-    return () => mq.removeEventListener("change", setReducedMotion);
+  const current = leadershipPerspectives[activeIndex];
+  const paragraphs = current.content.split("\n\n");
+
+  const clearAutoplay = useCallback(() => {
+    if (timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
   }, []);
 
-  // Start autoplay timer
-  useEffect(() => {
-    if (reducedMotion) return;
+  const startAutoplay = useCallback(() => {
+    clearAutoplay();
 
-    function startTimer() {
-      timerRef.current = setTimeout(() => {
-        setActiveIndex((i) => (i + 1) % 3);
-        if (!mouseLeaveRef.current) startTimer();
-    }, AUTOPLAY_INTERVAL);
-
-      return () => {
-        if (timerRef.current) clearTimeout(timerRef.current);
-      };
+    if (reducedMotionRef.current || isHoveredRef.current) {
+      return;
     }
 
-    startTimer();
-  }, [reducedMotion, activeIndex]);
+    timerRef.current = setTimeout(() => {
+      setActiveIndex((currentIndex) => {
+        return (currentIndex + 1) % leadershipPerspectives.length;
+      });
+    }, AUTOPLAY_INTERVAL);
+  }, [clearAutoplay]);
 
-  // Pause on hover (desktop)
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      reducedMotionRef.current = event.matches;
+
+      if (event.matches) {
+        clearAutoplay();
+      } else {
+        startAutoplay();
+      }
+    };
+
+    reducedMotionRef.current = mediaQuery.matches;
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, [clearAutoplay, startAutoplay]);
+
+  useEffect(() => {
+    startAutoplay();
+
+    return () => {
+      clearAutoplay();
+    };
+  }, [activeIndex, startAutoplay, clearAutoplay]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
     const handleMouseEnter = () => {
-      mouseLeaveRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
+      isHoveredRef.current = true;
+      clearAutoplay();
     };
 
     const handleMouseLeave = () => {
-      mouseLeaveRef.current = true;
-      startTimer();
+      isHoveredRef.current = false;
+      startAutoplay();
     };
 
-    const container = document.querySelector(
-      ".leadership-perspectives-container",
-    ) as HTMLElement;
-    if (container) {
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-    }
+    section.addEventListener("mouseenter", handleMouseEnter);
+    section.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      container?.removeEventListener("mouseenter", handleMouseEnter);
-      container?.removeEventListener("mouseleave", handleMouseLeave);
+      section.removeEventListener("mouseenter", handleMouseEnter);
+      section.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [reducedMotion]);
+  }, [clearAutoplay, startAutoplay]);
 
-  // Restart timer on dot click
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (
+      !section ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      const quoteMark = section.querySelector(".leadership-quote-mark");
+      const revealItems = gsap.utils.toArray<HTMLElement>(".leadership-reveal", section);
+
+      gsap.set(quoteMark, { autoAlpha: 0, scale: 0.96 });
+      gsap.set(revealItems, { autoAlpha: 0, y: 18 });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 78%",
+            once: true,
+          },
+          defaults: { ease: "power3.out" },
+        })
+        .to(quoteMark, { autoAlpha: 1, scale: 1, duration: 0.6 })
+        .to(
+          revealItems,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.58,
+            stagger: 0.11,
+          },
+          "-=0.32",
+        );
+    }, section);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   const handleDotClick = useCallback(
     (index: number) => {
       setActiveIndex(index);
-      // Restart timer from new position
-      if (timerRef.current) clearTimeout(timerRef.current);
-      timerRef.current = setTimeout(() => {
-        setActiveIndex((i) => (i + 1) % 3);
-        if (!mouseLeaveRef.current) startTimer();
-    }, AUTOPLAY_INTERVAL);
+      clearAutoplay();
+
+      if (!reducedMotionRef.current && !isHoveredRef.current) {
+        timerRef.current = setTimeout(() => {
+          setActiveIndex((currentIndex) => {
+            return (currentIndex + 1) % leadershipPerspectives.length;
+          });
+        }, AUTOPLAY_INTERVAL);
+      }
     },
-    [activeIndex],
+    [clearAutoplay],
   );
-
-  const current = leadershipPerspectives[activeIndex];
-  const prevIndex = activeIndex === 0 ? 2 : activeIndex - 1;
-  const nextIndex = (activeIndex + 1) % 3;
-
-  const transitionClass = !reducedMotion
-    ? "transition-opacity duration-500 ease-out"
-    : "transition-none";
-
-  const prevOpacity = !reducedMotion ? "opacity-100" : "opacity-0";
-  const nextOpacity = !reducedMotion ? "opacity-0" : "opacity-100";
 
   return (
     <section
-      className="leadership-perspectives section"
+      ref={sectionRef}
+      className="leadership-perspectives section overflow-hidden"
       aria-label="Leadership Perspectives"
     >
       <div className="site-container">
-        <div className="leadership-perspectives-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1.2fr]">
-          {/* LEFT: Our Story */}
-          <div>
-            <SectionHeading
-              eyebrow="Our story"
-              title="A journey toward engineering independence"
-              description="Every milestone represents an expansion of practical capability—from engineering support to manufacturing, tooling, automation, and international partnerships."
-              align="center"
-            />
-            <div className="prose prose-sm mt-4">
-              {/* Existing journey content would go here */}
-              <p>
-                Every milestone represents an expansion of practical capability—from
-                engineering support to manufacturing, tooling, automation, and
-                international partnerships.
+        <div className="relative mx-auto max-w-5xl py-4 text-center">
+          <span
+            aria-hidden="true"
+            className="leadership-quote-mark pointer-events-none absolute -left-4 -top-8 text-[9rem] font-semibold leading-none text-blue/10 sm:-left-10 sm:text-[13rem]"
+          >
+            “
+          </span>
+
+          <div className="relative">
+            <span className="leadership-reveal text-xs font-bold uppercase tracking-[0.24em] text-blue">
+              Leadership Perspectives
+            </span>
+
+            <h2
+              key={`${current.id}-title`}
+              className="leadership-reveal mt-5 text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-navy sm:text-5xl lg:text-6xl"
+            >
+              {current.title}
+            </h2>
+
+            <div
+              key={`${current.id}-content`}
+              className="mx-auto mt-8 max-w-3xl space-y-5 text-lg leading-8 text-muted sm:text-xl sm:leading-9"
+            >
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph} className="leadership-reveal">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div
+              key={`${current.id}-identity`}
+              className="leadership-reveal mt-9 text-navy"
+            >
+              <p className="text-lg font-semibold">— {current.name}</p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.16em] text-muted">
+                {current.role}
               </p>
             </div>
-          </div>
 
-          {/* RIGHT: Leadership Perspectives */}
-          <div className="space-y-6">
-            {/* Heading */}
-            <div className="pb-2">
-              <span className="text-xs tracking-widest uppercase text-blue-600">
-                LEADERSHIP PERSPECTIVES
-              </span>
-            </div>
-
-            {/* Active perspective card */}
-            <article
-              className={`leadership-card rounded-lg border border-border bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-navy/10 ${transitionClass}`}
-              style={{ opacity: activeIndex === 0 ? 1 : 0, transform: `translateY(${activeIndex === 0 ? 0 : -8}px)` }}
-            >
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-navy mb-2">
-                  {current.title}
-                </h3>
-                <p className="text-muted leading-relaxed">
-                  {current.content}
-                </p>
-                <div className="mt-4 flex items-center gap-2 text-sm">
-                  <span>
-                    — {current.name}
-                  </span>
-                  <span className="text-navy/70">{current.role}</span>
-                </div>
-              </div>
-            </article>
-
-            {/* Navigation dots */}
-            <div className="flex justify-center gap-2">
-              {leadershipPerspectives.map((perspective, idx) => {
-                const isActive = idx === activeIndex;
-                const dotClass = isActive
-                  ? "dot-active"
-                  : "dot-inactive";
-                const ariaLabel = `Show ${perspective.name}'s perspective`;
+            <div className="leadership-reveal mt-8 flex justify-center gap-2">
+              {leadershipPerspectives.map((perspective, index) => {
+                const isActive = index === activeIndex;
 
                 return (
                   <button
                     key={perspective.id}
                     type="button"
-                    aria-label={ariaLabel}
-                    aria-current={isActive ? "step" : "false"}
-                    className={`dot ${dotClass} transition-colors duration-200 hover:shadow-lg hover:shadow-navy/10`}
-                    onClick={() => {
-                      setActiveIndex(idx);
-                      if (timerRef.current) clearTimeout(timerRef.current);
-                      timerRef.current = setTimeout(startAutoplay, AUTOPLAY_INTERVAL);
-                    }}
+                    aria-label={`Show ${perspective.name}'s perspective`}
+                    aria-current={isActive ? "step" : undefined}
+                    className={`size-3 rounded-full border transition-all duration-200 ${
+                      isActive
+                        ? "border-blue bg-blue"
+                        : "border-border bg-white hover:border-blue/50"
+                    }`}
+                    onClick={() => handleDotClick(index)}
                   >
-                    <span className="sr-only">Director {idx + 1}</span>
-                    <svg
-                      className={`w-5 h-5 fill-current ${
-                        isActive ? "text-navy" : "text-slate-300"
-                      }`}
-                    >
-                      <circle
-                        cx="6"
-                        cy="6"
-                        r="5"
-                        className={`${
-                          isActive ? "ring-2 ring-navy" : "ring-note"
-                        } transition-all duration-200`}
-                      />
-                    </svg>
+                    <span className="sr-only">
+                      Director {index + 1}: {perspective.name}
+                    </span>
                   </button>
                 );
               })}
@@ -217,11 +258,4 @@ export function LeadershipPerspectives() {
       </div>
     </section>
   );
-}
-
-function startAutoplay() {
-  timerRef.current = setTimeout(() => {
-    setActiveIndex((i) => (i + 1) % 3);
-    if (!mouseLeaveRef.current) startAutoplay();
-  }, AUTOPLAY_INTERVAL);
 }
